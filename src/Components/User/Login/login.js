@@ -54,14 +54,37 @@ const Login = () => {
   return (
     <Box>
       <HomeappBar />
-      <Container>
-        <Stack sx={{ mt: 5 }} spacing={4}>
+
+      <Container
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "15px",
+          mt: 10,
+          background: "aliceblue",
+          padding: "55px"
+        }}
+      >
+        <Box
+          component="img"
+          sx={{
+            width: { lg: "40%", md: "40%", sm: "40%", xs: "0%" },
+            borderRadius: "10px",
+            display: { lg: "block", md: "block", sm: "block", xs: "none" }
+          }}
+          src="https://brooklynbrewery.com/wp-content/uploads/2019/08/BrooklynBrewery_Bar_Products_592_US_Lager.jpg"
+        />
+        <Stack
+          sx={{ mt: 5, width: { lg: "50%", md: "50%", sm: "50%", xs: "100%" } }}
+          spacing={4}
+        >
           <Typography variant="h5" sx={{ textAlign: "center" }}>
             USER LOGIN
           </Typography>
           <TextField
             fullWidth
             label="Email"
+            size="small"
             id="fullWidth"
             value={email}
             onChange={e => setemail(e.target.value)}
@@ -71,21 +94,24 @@ const Login = () => {
             label="Password"
             type="password"
             id="fullWidth"
+            size="small"
             value={password}
             onChange={e => setpassword(e.target.value)}
           />
           <Button variant="contained" onClick={handleSubmit}>
             Login
           </Button>
-          <Typography variant="h6" sx={{ textAlign: "center" }}>
-            OR
-          </Typography>
+          <Box>
+            <Typography variant="h6" sx={{ textAlign: "center" }}>
+              OR
+            </Typography>
+            <Link to="/signup">
+              <Typography variant="h6" sx={{ textAlign: "center" }}>
+                Create new account ?
+              </Typography>
+            </Link>
+          </Box>
         </Stack>
-        <Link to="/signup">
-          <Typography variant="h6" sx={{ textAlign: "center" }}>
-            Create new account ?
-          </Typography>
-        </Link>
       </Container>
     </Box>
   );
