@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Box } from "@mui/material";
+import { Route, Routes } from "react-router-dom";
+import Login from "./Components/User/Login/login";
+import Signup from "./Components/User/Signup/signup";
+import Bewerylist from "./Components/User/Home/Bewery";
+import Profile from "./Components/User/Profile/profile";
+import BeweryDetail from "./Components/User/Home/Bewerydetail";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box>
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/signup" element={<Signup />} />
+        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/home" element={<Bewerylist />} />
+        <Route exact path="/profile" element={<Profile />} />
+        <Route exact path="/bewerydetail" element={<BeweryDetail />} />
+      </Routes>
+    </Box>
   );
 }
 
